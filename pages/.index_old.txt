@@ -1,0 +1,257 @@
+<template>
+  <div class="homepage">
+    <div class="homepage-content">
+      <div class="stores-info">
+        <h1 class="stores-info-title" style="font-weight:500">
+          Altijd de <span style="font-weight:700;">beste deal</span>,<br> zonder gedoe.
+        </h1>
+        <div class="intro-info-text">
+          Wij vergelijken de beste merken, van de grootste webwinkels. Zo heb je altijd snel en overzichtelijk de beste koop.
+        </div>
+        <div class="stores">
+          <div class="store">
+            <a href="https://partner.bol.com/click/click?p=2&t=url&s=53519&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2F&name=de%20winkel%20van%20ons%20allemaal&subid=homepage" target="_blank">
+              <img
+                :src="sizeImage('Bol-Logo-Small.png',150,150)"
+                class="lazy"
+                alt="Bol.com"
+              >
+            </a>
+          </div>
+          <div class="store">
+            <a href="https://prf.hn/click/camref:1100l3H3C/pubref:homepage" target="_blank">
+              <img
+                :src="sizeImage('Coolblue.png',150,150)"
+                class="lazy"
+                alt="Coolblue"
+              >
+            </a>
+          </div>
+          <div class="store">
+            <a href="#" target="_blank">
+              <img
+                :src="sizeImage('Amazon.png',150,150)"
+                class="lazy"
+                alt="Amazon"
+              >
+            </a>
+          </div>
+        </div>
+        <div class="links">
+          <nuxt-link to="/products" class="remove-style">
+            <div
+              class="button green large button-productpage"
+              style="width:100%; height:54px;"
+            >
+              <span>Bekijk alle producten</span>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/uitleg" class="remove-style">
+            <div class="button gray large button-explain-productpage" style="height:54px">
+              <span>
+                Uitleg
+              </span>
+            </div>
+          </nuxt-link>
+        </div>
+      </div>
+      <div class="brands">
+        <div v-for="(item,i) of brands" :key="i" class="brand">
+          <nuxt-link :to="item.path">
+            <img
+              :src="sizeImage(item.image,200,200)"
+              class="lazy"
+              :alt="item.name"
+            >
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
+    <style v-if="layout && layout.css" type="text/css">
+      {{ layout.css }}
+    </style>
+  </div>
+</template>
+
+<script>
+import { sizeImage, getLayout } from '~/components/API.js'
+
+export default {
+  async asyncData ({ params, query, error }) {
+    const layout = await getLayout('homepage')
+    return { layout }
+  },
+  data () {
+    return {
+      dialog: false,
+      brands: [{ path: '/brand/bellroy', name: 'Bellroy', image: 'Bellroy.png' },
+        { path: '/brand/ring', name: 'Ring', image: 'Ring.png' },
+        { path: '/brand/satechi', name: 'Satechi', image: 'Satechi.png' },
+        { path: '/brand/mattee', name: 'Mattee', image: 'Mattee.png' }]
+    }
+  },
+  head () {
+    return {
+      title: 'Home'
+
+    }
+  },
+  mounted () {
+    document.head.append('<!-- TT -->')
+  },
+  methods: {
+    sizeImage (image, width, height, imagetype = 'brand') {
+      return sizeImage(image, width, height, imagetype)
+    }
+  }
+
+}
+</script>
+
+<style lang="css" >
+  .homepage .container {
+    height:100%;
+    display:grid;
+    justify-content:center;
+  }
+  .homepage {
+    display: grid;
+    height:100%;
+  }
+  .homepage-content {
+    display:grid;
+    align-self:center;
+    grid-template-columns: 1fr 1fr;
+    column-gap:50px;
+    row-gap:50px;
+    grid-template-rows: min-content max-content min-content;
+    grid-template-areas:
+    ". ."
+    "stores-info brands"
+    ". ."
+  }
+  .links {
+    grid-area: links;
+    width:100%;
+  }
+  .stores {
+    grid-area: stores;
+    display: flex;
+    align-items:center;
+    padding-bottom:20px;
+  }
+  .stores .store {
+    padding-right:20px;
+  }
+  .stores-info {
+    grid-area: stores-info;
+    align-content:end;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content max-content max-content;
+    display:grid;
+    grid-template-areas:
+    "title"
+    "info-text"
+    "stores"
+    "links"
+  }
+
+  .stores-info-title {
+    grid-area: title;
+    padding-bottom:10px;
+    font-size:50px;
+    line-height: 55px;
+  }
+  .intro-info-text {
+    grid-area: info-text;
+    padding-bottom:20px;
+    font-size: 18px;
+  }
+  .brands {
+    display:grid;
+    grid-area: brands;
+    grid-template-columns: 1fr 1fr;
+    column-gap:45px;
+    row-gap:40px;
+    grid-template-rows: 160px 160px;
+    justify-content: center;
+    align-content:center;
+  }
+
+  .links {
+    grid-area: links ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:15px;
+    row-gap:15px;
+    grid-template-rows: max-content;
+    grid-template-areas:
+    "green-button explain-button"
+  }
+  .button-productpage {
+    grid-area: green-button;
+  }
+  .button-explain-productpage {
+    grid-area: explain-button;
+  }
+  .brands .brand {
+    max-width:250px;
+    min-height:120px;
+    display:grid;
+    justify-content:center;
+    align-content:center;
+    background: #F4F4F4;
+    border-radius: 8px;
+    padding: 0;
+    justify-self:center;
+    align-self:center;
+    height:100%;
+    width:100%;
+  }
+  .brands .brand:hover {
+    background: #f4f4f482;
+  }
+  @media (max-width: 768px) {
+    .brands {
+      grid-template-columns: 1fr 1fr;
+    }
+    .links {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "green-button"
+      "explain-button"
+    }
+  }
+  .brands .brand img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width:992px) {
+    .homepage-content {
+        display:grid;
+        grid-template-columns: 1fr;
+        column-gap:15px;
+        row-gap:50px;
+        grid-template-rows: max-content;
+        grid-template-areas:
+        "brands"
+        "stores-info"
+
+    }
+    .homepage .product-info {
+      display: contents;
+    }
+    .brands {
+      grid-template-rows: max-content max-content;
+      column-gap: 20px;
+      grid-row-gap: 40px;
+    }
+  }
+  @media (max-width:600px) {
+    .stores {
+      flex-wrap:wrap;
+      justify-content: center;
+    }
+  }
+</style>

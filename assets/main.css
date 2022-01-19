@@ -1,0 +1,218 @@
+* {
+    padding: 0;
+    margin: 0; 
+}
+.bold {
+    font-weight: 700;
+}
+.algemene-voorwaarden li, .privacy-policy li {
+    margin-left: 20px;
+    line-height: 2;
+}
+.divider {
+    display: block;
+    flex: 1 1 0px;
+    max-width: 100%;
+    height: 0;
+    max-height: 0;
+    border: solid;
+    border-width: thin 0 0;
+    transition: inherit;
+    border-color: rgba(0,0,0,.12);
+}
+
+.button2 { 
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 16px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 5px 3px 22px 1px rgb(0 0 0 / 42%);
+    border-radius: 7px;
+    padding: 20px;
+}
+.button-privacy-statement { 
+    font-family: 'Poppins'; 
+    border: 2px solid #FFFFFF;    
+    border-radius: 7px;
+    padding: 5px 10px ; 
+}
+.button {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+}
+.button.large {
+    font-size: 18px!important;
+    font-weight: 700;
+}
+
+.button span {
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+}
+
+.button.green.best-deal {
+    background-color: rgb(0, 206, 92); 
+    /* background: linear-gradient(180deg, #2A814F 0%, #2DCD71 0.01%, #40BA74 100%); */
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0)  );
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px; 
+    color: white;
+}
+/*.button.green.best-deal:hover {
+    background-image: rgb(51, 216, 125);
+}*/
+.button.green.offer {
+    background-color: #2ECC71;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px 1px rgb(0 0 0 / 25%);
+}
+.button.green:hover {
+    /*background-color: #25a25a; */
+    background-color: rgb(51, 216, 125);
+}
+.button.red {
+    background-color: #cf6f74;
+    color: white;
+}
+.button.gray {
+    background-color: #e8ebf2;
+    border-radius: 8px;
+    color: rgba(7, 7, 7, 0.7) !important;
+}
+.button.load-more-button {
+    background-color: #269c75;
+    border-radius: 500px;
+    padding: 15px 45px;
+    width: max-content;
+    color:white;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+.button.load-more-button:hover {
+    background-color: #34c192;
+ }
+
+
+.product-item-title, .product-item-price {
+    font-family: 'Poppins';
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    letter-spacing: .0125em;
+    line-height: 1.5rem;
+    word-break: keep-all;
+    padding: 5px 0;
+}
+.product-item-price {
+    font-weight: 700;
+}
+.button.more-info {
+    justify-content: center;
+    display: flex;
+    font-weight: 400;
+    padding: 11px 40px 11px 40px;
+    background: rgba(196, 196, 196, 0.1);
+    border: 1px solid #1F2224;
+    border-radius: 5px;
+    color: #4E8E98;
+}
+html {
+    font-family: Cabin, Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    font-size: 16px;
+    word-break: keep-all!important;
+    overflow-x:hidden;
+}
+a.remove-style {
+    color: inherit;
+    text-decoration: none;
+}
+h1 {
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    /* color: #000000; */
+}
+.container {
+    width: auto;
+    padding: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+i {
+    display: inline-flex;
+    line-height: 1;
+}
+@media (min-width: 960px) {
+    .container {
+        max-width: 900px;
+    }
+}
+@media (min-width: 1264px) {
+    .container {
+        max-width: 1302px;
+    }
+}
+
+@media (min-width: 1904px) {
+    .container {
+        max-width: 1785px;
+    }
+} 
+
+.product-rating .star-full, .product-rating .star-half {
+    color: #FFC22B!important;
+    caret-color: #FFC22B!important;
+}
+.product-rating .star-outline {
+    color: #e0e0e0!important;
+    caret-color: #e0e0e0!important;
+}
+
+h2 {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-family: 'Poppins';
+    font-size: 26px;
+}
+
+.search input {
+    width: 345px;
+    height: 45px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 13px 1px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    font-family: 'Poppins';
+    padding-left: 15px;
+    font-size: 14px;
+    border: 0;
+    padding-right:45px;
+}
+@media (max-width: 768px) {
+    .search input {
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .search input {
+        width: 140px;
+    }
+}
+.search .icon {
+    position:absolute;
+    margin-left: -40px;
+    margin-top: 12px;
+}
+.search input:focus-visible {
+    outline:none;
+}

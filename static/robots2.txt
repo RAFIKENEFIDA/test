@@ -1,0 +1,4 @@
+User-agent: *
+sitemap: https://www.rovara.nl/sitemap.xml
+Disallow: /redirect
+Allow: /
